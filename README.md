@@ -16,7 +16,7 @@ Chaque vulnérabilité fait l’objet :
 - d’une preuve d’exploitation (payload, requête, screenshots dans le répertoire portant le nom de la vulnérabilité),
 
 🛠️ Phase de remédiation :
-À l’issue de l’exploitation, un correctif est proposé et implémenté pour chaque vulnérabilité identifiée.
+À l’issue de l’exploitation, un correctif est proposé et implémenté pour chaque vulnérabilité identifiée. (Chaque remédiation se situe dans le fichier de vulnérabilité).
 
 Les correctifs visent à :
 - éliminer la cause racine de la faille,
