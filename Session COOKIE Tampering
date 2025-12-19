@@ -1,0 +1,20 @@
+Attaque de Session/COOKIE Tampering : 
+
+curl -I http://192.168.10.22 
+Set-Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
+En allant sur https://crackstation.net/ on s’aperçoit que sa valeur est « false »
+ 
+On l’encrypte sur https://md5decrypt.net/ et il prend la valeur b326b5062b2f0e69046810717534cb09
+ 
+Direction le code source de la page de Sign-in pour modifier le cookie et rafraichir la page :
+ 
+FLAG => df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3
+
+=====================================================================================================================
+REMEDIATION 
+
+On ne doit jamais stocker de variables de contrôle de privilèges (comme "admin=true") de manière lisible ou prédictible dans un cookie côté client. 
+Donc il convient de procéder à ces modifications :
+-	Utiliser un ID de session (Session ID) aléatoire et complexe. 
+La correspondance entre cet ID et les droits (admin: true/false) doit être stockée exclusivement côté serveur (en base de données ou en RAM/Redis).
+-	Utiliser des JWT (JSON Web Tokens) signés cryptographiquement. Ainsi, si l'utilisateur change "false" en "true", la signature devient invalide et le serveur rejette la requête.
