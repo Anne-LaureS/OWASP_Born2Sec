@@ -1,0 +1,26 @@
+Attaque Content-Type_file_upload :
+
+Depuis la page d’accueil allez en bas de page et cliquez sur ADD IMAGE 
+http://192.168.10.22/?page=upload
+
+Le formulaire de téléchargement d'images (?page=upload) implémente une vérification de sécurité basée sur l'en-tête HTTP Content-Type. 
+Cependant, cette vérification est effectuée côté serveur en se fiant uniquement aux données envoyées par le client, sans analyser le contenu réel du fichier.
+
+L'attaque consiste à forcer la valeur du Content-Type lors de l'envoi d'un fichier PHP.
+Il faut créer un fichier empty.php sans contenu puis l’injecter au serveur comme si c’était une image :
+curl -X POST -H 'Content-Type: multipart/form-data' \
+     -F 'Upload=send' \
+     -F 'uploaded=@empty.php;type=image/jpeg' \
+     'http://192.168.10.22/index.php?page=upload'
+
+Et le flag apparait dans le résultat de la commande :
+
+FLAG => 46910d9ce35b385885a9f7e2b336249d622f29b267a1771fbacf52133beddba8
+
+==============================================================================================================
+Remédiation :
+
+Une application ne doit jamais faire confiance à une en-tête « Content-Type » fourni par l'utilisateur. Pour cela il convient de :
+-	Utiliser des Magic Bytes : Vérifier la signature binaire du fichier. En PHP, utiliser l'extension finfo
+-	Renommer les fichiers avec un identifiant unique. (image_15928374.jpg au lieu de empty.php) et n’autoriser QUE des .jpg, .jpeg, .png
+-	Stockage des fichiers hors du document Root
