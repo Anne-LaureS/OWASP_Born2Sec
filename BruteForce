@@ -1,0 +1,31 @@
+Attaque par BRUTE FORCE :
+
+Créons les fichiers users et passwords afin de récupérer ceux-ci :
+echo -e "root\nadmin" > users.txt
+echo -e "fortytwo\nalbatroz\nadmin\npassword" > passwords.txt
+
+$ cat passwords.txt 
+fortytwo
+albatroz
+admin
+password
+
+$ cat passwords.txt 
+fortytwo
+albatroz
+admin
+password
+
+sudo nano bruteforce.sh (voir capture d'écran)
+sudo nano dictionary.txt (voir capture d'écran)
+chmod +x bruteforce.sh
+./bruteforce.sh dictionary.txt
+
+FLAG => b3a6e43ddf8b4bbb4125e5e7d23040433827759d4de1c04ea63907479a80a6b2
+
+==================================================================================================================================================
+REMEDIATION :
+
+Pour remédier à cette faille de scéurité il convient de :
+-	Implémentation d'un sel (salt) : Pour rendre les dictionnaires de mots de passe inutiles si la base de données est fuitée.
+-	Verrouillage exponentiel : Augmenter le temps d'attente entre deux tentatives après chaque échec.
