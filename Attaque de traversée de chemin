@@ -16,6 +16,7 @@ Taper root + qwerty123@ pour se connecter
 FLAG => d19b4823e0d5600ceed56d5e896ef328d7a2b9e7ac7e80f4fcdb9b10bcb3e7ff
 =====================================================================================================================================
 REMEDIATION 
+
 Protection contre les LFI (Local File Inclusion) :
 La faille LFI permet à un attaquant de manipuler le paramètre ?page= pour lire des fichiers système comme /etc/passwd.
 - Utilisation d'une Whitelist (Liste Blanche) : Au lieu de laisser l'utilisateur appeler n'importe quel fichier, on définit une liste stricte de pages autorisées. Si la demande ne correspond pas exactement à la liste, l'accès est refusé par défaut.
