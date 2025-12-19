@@ -1,0 +1,8 @@
+Attaque Recover_submit :
+
+Depuis la page de login en faisant « I forgot my password » on arrive sur la page http://192.168.10.22/?page=recover
+ 
+En inspectant le code source on aperçoit cette adresse mail : webmaster@borntosec.com
+ 
+En supprimant le «# »  de action et le « hidden » puis en modifiant le « webmaster@borntosec » par kali12@kali.com et en supprimant la longueur 15 on obtient le flag
+FLAG => 1d4855f7337c0c14b6f44946872c4eb33853f40b2d54393fbe94f49f1e19bbb0
