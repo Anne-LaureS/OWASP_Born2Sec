@@ -1,4 +1,4 @@
-📌 Capture The Flag
+📌 CAPTURE THE FLAG
 
 🎯 Objectif du projet :
 Ce projet s’inscrit dans le cadre d’un Capture The Flag (CTF) orienté sécurité applicative.
