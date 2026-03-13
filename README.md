@@ -1,5 +1,10 @@
 ## 🏴‍☠️ Capture The Flag – Born2Sec
 
+![OWASP](https://img.shields.io/badge/OWASP-Top%2010-000000?logo=owasp&logoColor=white)
+![CTF](https://img.shields.io/badge/Capture%20The%20Flag-Active-purple?logo=flag&logoColor=white)
+![Security](https://img.shields.io/badge/Security-Hardening-blue?logo=shield&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-Hardened-black?logo=linux&logoColor=white)
+
 ## Ce CTF a pour objectif d’explorer et d’exploiter différentes vulnérabilités issues du top OWASP, dans un environnement contrôlé. Chaque étape permet de comprendre une faille, de l’exploiter, puis d’appliquer une mesure corrective.
 
 ---
