@@ -27,7 +27,7 @@ Exploit : ' OR 1=1 --
 Flag : FLAG{SQLI_SUCCESS}
 ```
 
-## Fix : requêtes préparées + validation stricte
+=> Fix : requêtes préparées + validation stricte
 
 ## 🔹 Challenge 2 — XSS (Cross‑Site Scripting)
 Objectif : exécuter du JavaScript dans le navigateur
@@ -40,7 +40,7 @@ Exploit : <script>alert(1)</script>
 Flag : FLAG{XSS_PWNED}
 ```
 
-## Fix : escaping + CSP
+=> Fix : escaping + CSP
 
 ## 🔹 Challenge 3 — Directory Traversal
 Objectif : lire un fichier sensible
@@ -53,7 +53,7 @@ Exploit : ../../../../etc/passwd
 Flag : FLAG{TRAVERSAL_OK}
 ```
 
-## Fix : whitelist + path normalisation
+=> Fix : whitelist + path normalisation
 
 ## 🔹 Challenge 4 — Mauvaise configuration serveur
 Objectif : accéder à une page admin exposée
@@ -66,7 +66,7 @@ Exploit : /admin/
 Flag : FLAG{MISCONFIG_FOUND}
 ```
 
-## Fix : durcissement + permissions
+=> Fix : durcissement + permissions
 
 ## 🔹 Challenge 5 — Faiblesse d’authentification
 Objectif : brute‑forcer un mot de passe faible
@@ -79,7 +79,7 @@ Exploit : admin:admin
 Flag : FLAG{AUTH_BROKEN}
 ```
 
-## Fix : MFA + politique de mot de passe
+=> Fix : MFA + politique de mot de passe
 
 ---
 
